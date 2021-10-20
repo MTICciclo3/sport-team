@@ -4,7 +4,8 @@ var mongoose = require('mongoose')
 
 
 const productsRoutes = require ("./routes/productos");
-const usuariosRoutes = require ("./routes/usuarios");
+const ventasRoutes = require ("./routes/ventas");
+//const usuariosRoutes = require ("./routes/usuarios");
 
 
 app.use(express.json()); //Acceder al body del metodo post
@@ -16,6 +17,7 @@ mongoose.connect("mongodb+srv://inventario:inventariosportteam@cluster0.j53jc.mo
 });
 
 app.use("/api/products", productsRoutes);
-app.use("/api/usuarios", usuariosRoutes);
+app.use("/api/ventas", ventasRoutes);
+//app.use("/api/usuarios", usuariosRoutes);
 
 module.exports = app;
