@@ -23,7 +23,7 @@ const ActualizarProductos = () => {
     const [nombre, cambiarNombre] = useState({campo:'',valido: ''});
     const [descripcion, cambiarDescripcion] = useState({campo:'',valido: ''});
     const [valor, cambiarvalor] = useState({campo:'',valido: ''});
-    //const [idVendedor, cambiarIdVendedor] = useState({valido: ''});
+    const [idVendedor, cambiarIdVendedor] = useState({valido: ''});
     const [Estado, cambiarEstado] = useState({campo:'',valido: ''});
     const [formularioValido, cambiarFormularioValido] = useState('');
 
@@ -130,18 +130,17 @@ const ActualizarProductos = () => {
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
                     />
-
-                   {/* <Input
-                    user = "Id-Producto"
-                    placeholdercont = "Id-Producto"
-                    tipo = "number"
-                    leyenda = "El Id solo admite números"
-                    expresionRegular = {Expresiones.telefono}
+                    <Input 
+                    user = "URL"
+                    placeholdercont = "URL-producto"
+                    tipo = "text"
+                    leyenda = "No es una URL valida"
+                    expresionRegular = {Expresiones.nombre}
                     name = "idVendedor"
                     estado = {idVendedor}
                     cambiarEstado = {cambiarIdVendedor}
                     />
-                     */}
+                    
                     <Selects
                     user = "Estado"
                     placeholdercont = "Selecciona el estado"
