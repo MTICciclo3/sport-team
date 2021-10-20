@@ -9,7 +9,7 @@ const Aside = () => {
     return (        
             <nav className="sidebar">
                 <div padding='20px'><img   className='bola' src={logo1} alt="" /></div>
-                <span className="tituloSide">TEAMFIVE</span>
+                <span className="tituloSide">SPORTTEAM</span>
                 
                 <NavLink className="a" activeClassName='active' to='Dashboard'>
                     <FontAwesomeIcon className="iconSide" icon={faHome}/>
@@ -25,7 +25,7 @@ const Aside = () => {
                 </NavLink>
                 <NavLink className="a" activeClassName='active' to='tablaGestionUsuarios'>
                     <FontAwesomeIcon className="iconSide" icon={faUsers}/>
-                    Gestion Usuarios
+                    Gestion de Vendedores
                 </NavLink>
                 <Link className="a" to=''>
                     <FontAwesomeIcon className="iconSide" icon={faSignOutAlt}/>
