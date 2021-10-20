@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+}
+
+html, body, .app {
+  height: 100%;
+}
+
+.layout {
+  background-color: whitesmoke;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+Aside {
+  margin: 0;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.burger {
+  position: fixed;
+}
+
+.responsive {
+  background-color: #023047;
+}
+
+.responsive .a {
+  display: block;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.responsive .a.active {
+  background-color: rgba(0, 68, 170, 0.555);
+  color: white;
+  border-radius: 20px;
+  margin: 15px;
+}
+
+.responsive .a:hover:not(.active) {
+  background-color: #0e7a96;
+  color: white;
+  border-radius: 20px;
+  margin: 15px;
+}
+
+.contenido {
+  padding-left: 200px;
+}
+
+.tituloUno {
+  background-color: #4cb5d4;
+  text-align: center;
+  font-style: italic;
+}
+
+.bola {
+  display: inline-block;
+  margin: 20px 0px 30px 30px;
+  height: 120px;
+  width: 140px;
+  border-radius: 100%;
+  border: 2px solid white;
+  text-align: center;
+  object-fit: cover;
+  ;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #0e7ab1;
+  position: fixed;
+  overflow: auto;
+  font-weight: bold;
+  display: block;
+  height: 100%;
+}
+
+.sidebar .a {
+  display: block;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar .a.active {
+  background-color: rgba(0, 68, 170, 0.555);
+  color: white;
+  border-radius: 20px;
+  margin: 15px;
+}
+
+.card-img-container {
+  height: 200px;
+  overflow: hidden
+}
+
+.dashboard-cards-container {
+  height: 100vh;
+  display: flex;
+}
+
+.card-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sidebar .a:hover:not(.active) {
+  background-color: #073d4b;
+  color: white;
+  border-radius: 20px;
+  margin: 15px;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.hola {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  position: fixed;
+  overflow: auto;
+  font-weight: bold;
+  display: block;
+  height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    visibility: hidden;
+  }
+  .contenido {
+    padding-left: 0;
+  }
+  .dashboard-cards-container {
+    height: max-content;
+  }
+  .mainContainerTable{
+    margin: 0;
+  }
+}
+
+@media screen and (min-width:700px){
+  .responsive {
+    visibility: hidden;
+  }
+  .burger {
+    visibility: hidden;
+  }
+}
+.guiGestionUsuarios {
+  max-width: 800px;
+  width: 90%;
+  margin: auto;
+  padding: 40px;
+  background-color: whitesmoke;
+}
+
+/* Sirve para quitar las flechas al tipo number*/
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.tituloGestionVentas {
+  display: block;
+  text-align: center;
+  padding: 30px 0px 30px 0px;
+}
+
+.mainContainerTable {
+  width: 70%;
+  margin: auto;
+}
+
+.mainContainerTable .gypLdv{
+  margin: 0;
+}
+
+.selectlist {
+  height: 45px;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.botonVolver {
+  margin: 50px 0px 0px 300px;
+  font-size: 20px;
+}
+
+.iconSide {
+  margin-right: 10px;
+}
+
+.tituloSide {
+  font-size: bold;
+  display: block;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.TooltipEditar {
+  display: block;
+  text-align: center;
+}
+
+.GUS {
+  visibility: hidden;
+}
+
+.inputBusqueda {
+  display: row;
+  background-color: #fff;
+  border-radius: 3px;
+  height: 45px;
+  line-height: 45px;
+  padding: 0px 40px 0px 10px;
+  margin-left: 53px;
+  transition: .3s ease all;
+}
