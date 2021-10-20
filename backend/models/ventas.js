@@ -4,7 +4,7 @@ const venta = mongoose.Schema({
     nombre: { type: String, required: true},
     apellido: { type: String, required: true},
     documento : { type: Number, required: true },
-    fecha: { type: Date },
+    //fecha: { type: Date },
     vendedorId: { type: Number, required: true},
     producto: { type: String, required: true},
     cantidad: { type: Number, required: true},
