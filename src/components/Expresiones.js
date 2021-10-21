@@ -6,7 +6,8 @@ const Expresiones = {
         telefono: /^\d{7,14}$/, // 7 a 14 numeros.
         valores: /^\d{4,10}$/,
         cantidad: /^\d{1,4}$/,
-        fechas: /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/
+        fechas: /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/,
+        url: /^.{4,1672}$/
 };
 
 export default Expresiones;

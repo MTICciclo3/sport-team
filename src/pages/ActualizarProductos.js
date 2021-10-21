@@ -16,7 +16,7 @@ const ActualizarProductos = () => {
     const params=useParams();
     const history=useHistory();
 
-    const initialState={_id:'', nombre:'', descripcion:'', valor:'', Estado:'' };
+    const initialState={_id:'', nombre:'', descripcion:'', valor:'', Estado:'', url:'' };
     const [usuarios,setUsuarios]= useState(initialState);
 
 
@@ -26,6 +26,7 @@ const ActualizarProductos = () => {
     const [idVendedor, cambiarIdVendedor] = useState({valido: ''});
     const [Estado, cambiarEstado] = useState({campo:'',valido: ''});
     const [formularioValido, cambiarFormularioValido] = useState('');
+    const [url, cambiarurl] = useState({campo:'',valido: ''});
 
     const getProducto= async(productId)=>{
         try{
@@ -40,9 +41,10 @@ const ActualizarProductos = () => {
         if(params.id){
             getProducto(params.id);
             cambiarNombre({valido: "true"});
-            cambiarDescripcion({valido: "true"});
+           cambiarDescripcion({valido: "true"});
             cambiarvalor({valido: "true"});
             cambiarEstado({valido: "true"});
+            cambiarurl({valido: "true"});
         }
         // eslint-disable-next-line
     }, []);
@@ -54,7 +56,8 @@ const ActualizarProductos = () => {
             nombre.valido === 'true' &&
             descripcion.valido === 'true' &&
             valor.valido === 'true' &&
-            Estado.valido === 'true'
+            Estado.valido === 'true' &&
+            url.valido === 'true' 
             ){
                 cambiarFormularioValido(true);
                 try{
@@ -130,15 +133,18 @@ const ActualizarProductos = () => {
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
                     />
-                    <Input 
-                    user = "URL"
-                    placeholdercont = "URL-producto"
+                    <Input
+                    user = "url"
+                    placeholdercont = "url producto"
                     tipo = "text"
-                    leyenda = "No es una URL valida"
-                    expresionRegular = {Expresiones.nombre}
-                    name = "idVendedor"
-                    estado = {idVendedor}
-                    cambiarEstado = {cambiarIdVendedor}
+                    leyenda = "la url admite todo tipo  letras y simbolos"
+                    expresionRegular = {Expresiones.url}
+                    name = "url"
+                    estado = {url}
+                    cambiarEstado = {cambiarurl}
+                    DefVal={usuarios.url}
+                    usuarios={usuarios}
+                    setUsuarios={setUsuarios}
                     />
                     
                     <Selects
