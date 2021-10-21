@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react'
-import { Formulario} from 'elements/Formularios';
+import React, { useState, useEffect } from 'react'
+import { Formulario } from 'elements/Formularios';
 import Input from 'components/Input';
 import Expresiones from 'components/Expresiones';
 import BotonCentrado from 'components/BotonCentrado';
 import AlertaError from 'components/AlertaError'
 import Selects from 'components/Selects';
-import { Link, useHistory, useParams  } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from "@material-ui/core";
@@ -15,41 +15,41 @@ import * as server from './server';
 function GestionUsuarios() {
 
     const params = useParams();
-    const history =useHistory();
+    const history = useHistory();
 
-    const initialState={_id:'', nombre:'',apellido:'', documento:'', Estado:'', Rol:''}
-    const [usuarios, setUsuarios]= useState(initialState);
+    const initialState = { _id: '', nombre: '', apellido: '', documento: '', Estado: '', Rol: '' }
+    const [usuarios, setUsuarios] = useState(initialState);
 
-    const [nombre, cambiarNombre] = useState({campo:'',valido: ''});
-    const [apellido, cambiarApellido] = useState({campo:'',valido: ''});
-    const [documento, cambiarDocumento] = useState({campo:'',valido: ''});
-    const [Rol, cambiarRol] = useState({campo:'',valido: ''});
-    const [Estado, cambiarEstado] = useState({campo:'',valido: ''});
+    const [nombre, cambiarNombre] = useState({ campo: '', valido: '' });
+    const [apellido, cambiarApellido] = useState({ campo: '', valido: '' });
+    const [documento, cambiarDocumento] = useState({ campo: '', valido: '' });
+    const [Rol, cambiarRol] = useState({ campo: '', valido: '' });
+    const [Estado, cambiarEstado] = useState({ campo: '', valido: '' });
     const [formularioValido, cambiarFormularioValido] = useState('');
 
 
-    const getUsuario= async(usuarioId)=>{
-        try{
+    const getUsuario = async (usuarioId) => {
+        try {
             const res = await server.getUsuario(usuarioId);
             setUsuarios(res.data);
-        }catch(error){
+        } catch (error) {
             console.log(error)
         }
     }
 
     useEffect(() => {
-        if(params.id){
+        if (params.id) {
             getUsuario(params.id);
-            cambiarNombre({valido: "true"});
-            cambiarApellido({valido: "true"});
-            cambiarDocumento({valido: "true"});
-            cambiarRol({valido: "true"});
-            cambiarEstado({valido: "true"});
+            cambiarNombre({ valido: "true" });
+            cambiarApellido({ valido: "true" });
+            cambiarDocumento({ valido: "true" });
+            cambiarRol({ valido: "true" });
+            cambiarEstado({ valido: "true" });
         }
         // eslint-disable-next-line
     }, []);
 
-    const onSubmitForm = async(e) =>{
+    const onSubmitForm = async (e) => {
         e.preventDefault();
         if (
             nombre.valido === 'true' &&
@@ -57,49 +57,49 @@ function GestionUsuarios() {
             documento.valido === 'true' &&
             Rol.valido === 'true' &&
             Estado.valido === 'true'
-            ){
+        ) {
             cambiarFormularioValido(true);
-            try{
+            try {
                 let res;
-                if(!params.id){
-                    res= await server.registerUser(usuarios);
+                if (!params.id) {
+                    res = await server.registerUser(usuarios);
                     console.log(res)
-                    if (res === 'OK'){
+                    if (res === 'OK') {
                         setUsuarios(initialState);
                     }
-                }else{
+                } else {
                     await server.updateUser(params.id, usuarios);
                 }
                 history.push("/TablaGestionUsuarios");
-            }catch(error){
+            } catch (error) {
                 console.log(error)
             }
-            }else{
-                cambiarFormularioValido(false);
-            }
-        };
+        } else {
+            cambiarFormularioValido(false);
+        }
+    };
 
-        const opcion1  = [
-            {value:'0', label: 'Administrador'},
-            {value:'1', label: 'Vendedor'},
-            {value:'2', label: 'Pendiente'}
-        ];
+    const opcion1 = [
+        { value: '0', label: 'Administrador' },
+        { value: '1', label: 'Vendedor' },
+        { value: '2', label: 'Pendiente' }
+    ];
 
-        const opcion2  = [
-            {value:'0', label: 'Pendiente'},
-            {value:'1', label: 'Autorizado'},
-            {value:'2', label: 'No Autorizado'}
-        ];
+    const opcion2 = [
+        { value: '0', label: 'Pendiente' },
+        { value: '1', label: 'Autorizado' },
+        { value: '2', label: 'No Autorizado' }
+    ];
 
     return (
         <main className="guiGestionUsuarios">
             <h2 className="tituloGestionVentas">Gestion Vendedores</h2>
             <Tooltip title="Regresar" arrow >
                 <Link to='/TablaGestionUsuarios'>
-                    <FontAwesomeIcon icon={faArrowLeft}/>
+                    <FontAwesomeIcon icon={faArrowLeft} />
                 </Link>
             </Tooltip>
-           <Formulario action="" onSubmit={onSubmitForm}>
+            <Formulario action="" onSubmit={onSubmitForm}>
                 <Input
                     estado={nombre}
                     cambiarEstado={cambiarNombre}
@@ -108,7 +108,7 @@ function GestionUsuarios() {
                     user="Nombre"
                     placeholdercont="Nombre de usuario"
                     name="nombre"
-                    leyenda= "El nombre solo admite letras"
+                    leyenda="El nombre solo admite letras"
                     expresionRegular={Expresiones.nombre}
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
@@ -121,12 +121,12 @@ function GestionUsuarios() {
                     user="Apellido"
                     placeholdercont="Apellido de usuario"
                     name="apellido"
-                    leyenda= "El apellido solo admite letras"
+                    leyenda="El apellido solo admite letras"
                     expresionRegular={Expresiones.nombre}
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
                 />
-                 <Input
+                <Input
                     estado={documento}
                     cambiarEstado={cambiarDocumento}
                     DefVal={usuarios.documento}
@@ -134,7 +134,7 @@ function GestionUsuarios() {
                     user="Id Usuario"
                     placeholdercont="N° ID del usuario"
                     name="documento"
-                    leyenda= "El Documento solo admite numeros, minimo 7 - maximo 14"
+                    leyenda="El Documento solo admite numeros, minimo 7 - maximo 14"
                     expresionRegular={Expresiones.telefono}
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
@@ -146,42 +146,42 @@ function GestionUsuarios() {
                     tipo="text"
                     user="Rol"
                     name="Rol"
-                    leyenda= "Administrador/ Vendedor / No Asignado"
+                    leyenda="Administrador/ Vendedor / No Asignado"
                     expresionRegular={Expresiones.nombre}
                     opciones={opcion1}
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
                 />
-               <Selects
+                <Selects
                     estado={Estado}
                     cambiarEstado={cambiarEstado}
                     DefVal={opcion2[usuarios.Estado]}
                     tipo="text"
                     user="Estado"
                     name="Estado"
-                    leyenda= "Pendiente / Autorizado / No Autorizado"
+                    leyenda="Pendiente / Autorizado / No Autorizado"
                     expresionRegular={Expresiones.nombre}
                     opciones={opcion2}
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
                 />
 
-                {formularioValido === false  && <AlertaError/> }
-                { params.id?(
+                {formularioValido === false && <AlertaError />}
+                {params.id ? (
                     <BotonCentrado
-                    nombreBoton = "Actualizar"
-                    formularioValido = {formularioValido}
-                    mensajeBoton = "Actualización exitosa"
+                        nombreBoton="Actualizar"
+                        formularioValido={formularioValido}
+                        mensajeBoton="Actualización exitosa"
                     />
-                ):(
+                ) : (
                     <BotonCentrado
-                    nombreBoton = "Crear"
-                    formularioValido = {formularioValido}
-                    mensajeBoton = "Creación exitosa"
+                        nombreBoton="Crear"
+                        formularioValido={formularioValido}
+                        mensajeBoton="Creación exitosa"
                     />
                 )}
 
-           </Formulario>
+            </Formulario>
         </main>
     );
 };

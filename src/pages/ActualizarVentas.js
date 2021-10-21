@@ -10,7 +10,7 @@ import {faCartPlus, faArrowLeft, faTruckLoading, faTimes, faCheck, faTrashAlt} f
 import { Link, useHistory, useParams } from 'react-router-dom';
 import * as api from './ApiVentas';
 import * as apiProductos from 'Api';
-import { GrupoInput } from 'elements/Formularios';
+//import { GrupoInput } from 'elements/Formularios';
 import Selects from 'components/Selects';
 
 const ActualizarVentas = () => {
@@ -19,7 +19,7 @@ const ActualizarVentas = () => {
   const history = useHistory();
   const initialState = {_id:'', nombre:'', apellido:'', documento:'', fecha:'', idVendedor:'', cantidadProducto:'', listaCanasta:'', producto:'', valor:''};
   const [usuarios, setUsuarios] = useState(initialState);
-  const initialStateListProductos = {item:'', cantidad:''};
+  //const initialStateListProductos = {item:'', cantidad:''};
   const [listaCanasta, setListaCanasta] = useState([]);
   
   
@@ -54,7 +54,7 @@ const ActualizarVentas = () => {
       cambiarFecha({valido:'true'});
       cambiarCantidadProducto({valido:'true'});
     }
-  }, []);
+  },[]);
 
   const onSubmitForm = async(e) =>{
         e.preventDefault();
