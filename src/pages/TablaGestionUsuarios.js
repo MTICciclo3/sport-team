@@ -9,6 +9,7 @@ const TablaGestionUsuarios = () => {
 
     const [usuarios, setUsuarios]= useState([]);
 
+    
     const listUsuarios = async()=>{
       try{
         const res = await server.listUsuarios();
@@ -68,14 +69,12 @@ const TablaGestionUsuarios = () => {
               <TableData>{usuario.apellido}</TableData>
               <TableData>{usuario.documento}</TableData>
               <TableData>
-                <button className="iconSide"
-                onClick={() => {
+                <button className="iconSide" onClick={() => {
                   history.push(`/editarUsuario/${usuario._id}`)}}
                 >
                     <FontAwesomeIcon  icon={faPenAlt}/>
                 </button>
-                <button className="iconSide"
-                  onClick={()=>handleDelete(usuario._id)}
+                <button className="iconSide" onClick={()=>handleDelete(usuario._id)}
                 >
                   <FontAwesomeIcon icon={faTrashAlt}/>
                 </button>

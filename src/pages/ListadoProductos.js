@@ -9,7 +9,7 @@ import * as api from 'Api';
 const ListadoProductos = () => {
 
   const [productos, setProductos] = useState([]);
-  const history = useHistory();
+  
 
   const listProductos = async()=>{
     try{
@@ -24,6 +24,8 @@ const ListadoProductos = () => {
   useEffect(()=>{
     listProductos();
   },[]);
+
+  const history = useHistory();
 
   const handleDelete= async (productId)=>{
     await api.deleteProduct(productId);
