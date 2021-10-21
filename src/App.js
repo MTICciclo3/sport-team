@@ -21,6 +21,7 @@ function App() {
               "/gestionUsuarios",
               "/ventas",
               "/CrearProductos",
+              "/CrearUsuarios",
               "/CrearVentas",
               "/ActualizarVentas",
               "/Dashboard",

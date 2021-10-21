@@ -17,7 +17,7 @@ export const registerProducts = async (newProduct) =>{
                 descripcion: newProduct.descripcion,
                 valor: newProduct.valor,
                 Estado: newProduct.Estado,
-                url: newProduct.url
+                urlimagen: newProduct.urlimagen
             },
         })
         return response
@@ -63,7 +63,8 @@ export const updateProduct = async (productId, updateProduct) =>{
                 nombre: updateProduct.nombre,
                 descripcion: updateProduct.descripcion,
                 valor: updateProduct.valor,
-                Estado: updateProduct.Estado
+                Estado: updateProduct.Estado,
+                urlimagen: updateProduct.urlimagen
             },
         })
         return response

@@ -26,7 +26,7 @@ const ActualizarProductos = () => {
     const [idVendedor, cambiarIdVendedor] = useState({valido: ''});
     const [Estado, cambiarEstado] = useState({campo:'',valido: ''});
     const [formularioValido, cambiarFormularioValido] = useState('');
-    const [url, cambiarurl] = useState({campo:'',valido: ''});
+    const [urlimagen, cambiarurlimagen] = useState({campo:'',valido: ''});
 
     const getProducto= async(productId)=>{
         try{
@@ -44,7 +44,7 @@ const ActualizarProductos = () => {
            cambiarDescripcion({valido: "true"});
             cambiarvalor({valido: "true"});
             cambiarEstado({valido: "true"});
-            cambiarurl({valido: "true"});
+            cambiarurlimagen({valido: "true"});
         }
         // eslint-disable-next-line
     }, []);
@@ -57,7 +57,7 @@ const ActualizarProductos = () => {
             descripcion.valido === 'true' &&
             valor.valido === 'true' &&
             Estado.valido === 'true' &&
-            url.valido === 'true' 
+            urlimagen.valido === 'true' 
             ){
                 cambiarFormularioValido(true);
                 try{
@@ -134,15 +134,15 @@ const ActualizarProductos = () => {
                     setUsuarios={setUsuarios}
                     />
                     <Input
-                    user = "url"
+                    user = "urlimagen"
                     placeholdercont = "url producto"
                     tipo = "text"
                     leyenda = "la url admite todo tipo  letras y simbolos"
                     expresionRegular = {Expresiones.url}
-                    name = "url"
-                    estado = {url}
-                    cambiarEstado = {cambiarurl}
-                    DefVal={usuarios.url}
+                    name = "url imagen"
+                    estado = {urlimagen}
+                    cambiarEstado = {cambiarurlimagen}
+                    DefVal={usuarios.urlimagen}
                     usuarios={usuarios}
                     setUsuarios={setUsuarios}
                     />

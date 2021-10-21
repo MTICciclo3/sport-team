@@ -93,7 +93,7 @@ function GestionUsuarios() {
 
     return (
         <main className="guiGestionUsuarios">
-            <h2 className="tituloGestionVentas">Gestion Usuarios</h2>
+            <h2 className="tituloGestionVentas">Gestion Vendedores</h2>
             <Tooltip title="Regresar" arrow >
                 <Link to='/TablaGestionUsuarios'>
                     <FontAwesomeIcon icon={faArrowLeft}/>

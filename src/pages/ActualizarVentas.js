@@ -113,10 +113,11 @@ const ActualizarVentas = () => {
     return {value: producto._id, label: producto.nombre, valor:producto.valor}
   });
   
-  const agregarProducto = (cantidadProducto, producto, valor)=>{
+  const agregarProducto = (cantidadProducto, producto, urlimagen, valor)=>{
     let item = {
       'cantidad':cantidadProducto,
       'producto': producto,
+      'urlimagen': urlimagen,
       'valor': valor
     }
     setListaCanasta([...listaCanasta, item]);

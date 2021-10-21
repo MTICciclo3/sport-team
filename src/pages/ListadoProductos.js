@@ -3,7 +3,7 @@ import {Table, TableHead, TableData, Boton, ContenedorBotonCentrado, TableRow} f
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
-import * as api from 'Api'
+import * as api from 'Api';
 
 
 const ListadoProductos = () => {
@@ -59,6 +59,7 @@ const ListadoProductos = () => {
           <tr>
             <TableData>Producto</TableData>
             <TableData>Estado</TableData>
+            <TableData>Imagen</TableData>
             <TableData>Valor</TableData>
             <TableData>Actualizar</TableData>
           </tr>
@@ -68,6 +69,7 @@ const ListadoProductos = () => {
             <TableRow key={productos._id}>
               <TableData>{productos.nombre}</TableData>
               <TableData>{productos.estado}</TableData>
+              <TableData>{productos.urlimagen}</TableData>
               <TableData>{productos.valor}</TableData>
               <TableData>
                 <button className="iconSide" onClick={() => {

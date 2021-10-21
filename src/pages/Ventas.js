@@ -3,7 +3,7 @@ import {Table, TableHead, TableData, Boton, ContenedorBotonCentrado, TableRow} f
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
-import * as api from './ApiVentas';
+import * as apiventas from './ApiVentas';
 
   const Ventas = () => {
     const [ventas, setVentas] = useState([]);
@@ -11,7 +11,7 @@ import * as api from './ApiVentas';
     
     const listaVentas = async()=> {
       try{
-        const res = await api.listaVentas();
+        const res = await apiventas.listaVentas();
         setVentas(res.data)
       }catch(error){
         console.error(error);
@@ -22,8 +22,10 @@ import * as api from './ApiVentas';
       listaVentas();
     }, []);
 
+    //const history = useHistory();
+
     const handleDelete = async (idVenta)=>{
-      await api.deleteVenta(idVenta);
+      await apiventas.deleteVenta(idVenta);
       listaVentas();
     };
 
