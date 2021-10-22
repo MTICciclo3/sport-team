@@ -57,7 +57,9 @@ const TablaGestionUsuarios = () => {
         <TableHead>
           <tr>
             <TableData>Nombre</TableData>
+            <TableData>Apellido</TableData>
             <TableData>Documento</TableData>
+            <TableData>Rol</TableData>
             <TableData>Estado</TableData>
             <TableData>Editar</TableData>
           </tr>
@@ -68,6 +70,8 @@ const TablaGestionUsuarios = () => {
               <TableData>{usuario.nombre}</TableData>
               <TableData>{usuario.apellido}</TableData>
               <TableData>{usuario.documento}</TableData>
+              <TableData>{usuario.Rol.label}</TableData>
+              <TableData>{usuario.Estado.label}</TableData>
               <TableData>
                 <button className="iconSide" onClick={() => {
                   history.push(`/editarUsuario/${usuario._id}`)}}

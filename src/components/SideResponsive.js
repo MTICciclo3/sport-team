@@ -18,15 +18,15 @@ const SideResponsive = () => {
                     </NavLink>
                     <NavLink className="a" activeClassName='active' to='ventas'>
                         <FontAwesomeIcon className="iconSide" icon={faCashRegister}/>
-                        Ventas
+                        Gestion Ventas
                     </NavLink>
                     <NavLink className="a" activeClassName='active' to='ListadoProductos'>
                         <FontAwesomeIcon className="iconSide" icon={faShoppingBag}/>
-                        Productos
+                        Gestion Productos
                     </NavLink>
                     <NavLink className="a" activeClassName='active' to='tablaGestionUsuarios'>
                         <FontAwesomeIcon className="iconSide" icon={faUsers}/>
-                        Usuarios
+                        Gestion Usuarios
                     </NavLink>
                     <Link className="a" to=''>
                         <FontAwesomeIcon className="iconSide" icon={faSignOutAlt}/>

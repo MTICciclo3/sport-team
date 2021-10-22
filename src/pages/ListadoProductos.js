@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
 import * as api from 'Api';
+import './index1.css';
+
 
 
 const ListadoProductos = () => {
@@ -62,16 +64,18 @@ const ListadoProductos = () => {
             <TableData>Producto</TableData>
             <TableData>Estado</TableData>
             <TableData>Imagen</TableData>
+            <TableData>Descripcion</TableData>
             <TableData>Valor</TableData>
             <TableData>Actualizar</TableData>
           </tr>
         </TableHead>
         <tbody>
           {productosFiltrados.map((productos) =>(
-            <TableRow key={productos._id}>
+              <TableRow key={productos._id}>
               <TableData>{productos.nombre}</TableData>
-              <TableData>{productos.estado}</TableData>
-              <TableData>{productos.urlimagen}</TableData>
+              <TableData>{productos.Estado.label}</TableData>
+              <TableData > <img src={productos.urlimagen}/> </TableData>
+              <TableData>{productos.descripcion}</TableData>
               <TableData>{productos.valor}</TableData>
               <TableData>
                 <button className="iconSide" onClick={() => {

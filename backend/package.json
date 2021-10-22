@@ -8,6 +8,7 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
+    "cores": "^0.8.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

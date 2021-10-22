@@ -78,13 +78,13 @@ function GestionUsuarios() {
             cambiarFormularioValido(false);
         }
     };
-
+    // Rol
     const opcion1 = [
         { value: '0', label: 'Administrador' },
         { value: '1', label: 'Vendedor' },
         { value: '2', label: 'Pendiente' }
     ];
-
+    // estado
     const opcion2 = [
         { value: '0', label: 'Pendiente' },
         { value: '1', label: 'Autorizado' },
