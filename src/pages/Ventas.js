@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
 import * as apiventas from './ApiVentas';
+import * as multi from './ActualizarVentas';
 
   const Ventas = () => {
     const [ventas, setVentas] = useState([]);
@@ -56,19 +57,27 @@ import * as apiventas from './ApiVentas';
         <Table>
           <TableHead>
             <tr>
-              <TableData>Nombre del cliente</TableData>
-              <TableData>Documento del cliente</TableData>
               <TableData>Id compra</TableData>
+              <TableData>Fecha</TableData>
+              <TableData>Nombre del cliente</TableData>
+              <TableData>Apellido del cliente</TableData>
+              <TableData>Documento del cliente</TableData>
+              <TableData>Id Vendedor</TableData>
+              <TableData>Valor Compra</TableData>
               <TableData>Actualizar</TableData>
             </tr>
           </TableHead>
           <tbody>
               {ventasFiltradas.map((ventas) =>(
                 <TableRow key={ventas._id}>
+                  <TableData>{ventas._id}</TableData>
+                  <TableData>{ventas.fecha}</TableData>
                   <TableData>{ventas.nombre}</TableData>
                   <TableData>{ventas.apellido}</TableData>
                   <TableData>{ventas.documento}</TableData>
-                  <TableData>
+                  <TableData>{ventas.idVendedor}</TableData>
+                  <TableData>{ventas.multi}</TableData>
+                 <TableData>
                     <button className="iconSide" 
                       onClick={()=>{
                         history.push(`/actualizarVentas/${ventas._id}`)

@@ -76,7 +76,7 @@ const ListadoProductos = () => {
               <TableData>{productos.Estado.label}</TableData>
               <TableData > <img src={productos.urlimagen}/> </TableData>
               <TableData>{productos.descripcion}</TableData>
-              <TableData>{productos.valor}</TableData>
+              <TableData>${productos.valor}</TableData>
               <TableData>
                 <button className="iconSide" onClick={() => {
                   history.push(`/editarProductos/${productos._id}`)}}

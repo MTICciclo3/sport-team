@@ -20,6 +20,7 @@ export const registerVenta = async (newVenta) =>{
                 idVendedor: newVenta.idVendedor,
                 cantidadProducto: newVenta.cantidadProducto,
                 listaCanasta: newVenta.listaCanasta,
+                multi: newVenta.multi,
             },
         })
         return response
@@ -68,6 +69,7 @@ export const updateVenta = async (idVenta, updateVenta) =>{
                 fecha: updateVenta.fecha,
                 idVendedor: updateVenta.idVendedor,
                 cantidadProducto: updateVenta.cantidadProducto,
+                multi: updateVenta.multi,
                 producto: updateVenta.producto
             },
         })

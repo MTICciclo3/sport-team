@@ -20,6 +20,7 @@ const crearVenta = async (datosVenta, callback) =>{
         Object.keys(datosVenta).includes("fecha") &&
         Object.keys(datosVenta).includes("idVendedor") &&
         Object.keys(datosVenta).includes("cantidadProducto") &&
+        Object.keys(datosVenta).includes("multi") &&
         Object.keys(datosVenta).includes("listaCanasta")
     ){
      //implementar codigo para crear venta en BD

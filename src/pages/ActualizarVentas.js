@@ -10,7 +10,7 @@ import {faCartPlus, faArrowLeft, faTruckLoading, faTimes, faCheck, faTrashAlt} f
 import { Link, useHistory, useParams } from 'react-router-dom';
 import * as api from './ApiVentas';
 import * as apiProductos from 'Api';
-//import { GrupoInput } from 'elements/Formularios';
+import { GrupoInput } from 'elements/Formularios';
 import Selects from 'components/Selects';
 
 const ActualizarVentas = () => {
@@ -19,7 +19,7 @@ const ActualizarVentas = () => {
   const history = useHistory();
   const initialState = {_id:'', nombre:'', apellido:'', documento:'', fecha:'', idVendedor:'', cantidadProducto:'', listaCanasta:'', producto:'', valor:''};
   const [usuarios, setUsuarios] = useState(initialState);
-  //const initialStateListProductos = {item:'', cantidad:''};
+  const initialStateListProductos = {item:'', cantidad:''};
   const [listaCanasta, setListaCanasta] = useState([]);
   
   
@@ -109,6 +109,8 @@ const ActualizarVentas = () => {
     listProductos();
   },[]);
 
+
+  
   const productoOpciones = productos.map((producto)=>{
     return {value: producto._id, label: producto.nombre, valor:producto.valor}
   });
@@ -200,7 +202,7 @@ const ActualizarVentas = () => {
             setUsuarios = {setUsuarios}
           />
           <Input 
-            user = "Id-vendedor"
+            user = "Idvendedor"
             placeholdercont = "Indíque su Id"
             tipo = "number"
             leyenda = "El Id solo admite numeros"
@@ -219,7 +221,10 @@ const ActualizarVentas = () => {
           ):(
             null
           )}  
+
           <Etiqueta>Información de compra: </Etiqueta>
+          <ContCarrito>
+          
           <Selects
             user = "Producto"
             placeholdercont = "Seleccione el producto"
@@ -233,7 +238,6 @@ const ActualizarVentas = () => {
             usuarios = {usuarios}
             setUsuarios = {setUsuarios}
           />
-          <ContCarrito>
             <Input 
               user = "cantidad"
               placeholdercont = "cantidad producto"
@@ -251,12 +255,15 @@ const ActualizarVentas = () => {
               <FontAwesomeIcon icon={faCartPlus}/>
             </Carrito>
           </ContCarrito>
+          </Formulario>
+
           <Table>
             <TableHead>
               <tr>
                 <TableData>Producto</TableData>
                 <TableData>Cantidad</TableData>
                 <TableData>Precio unitario</TableData>
+                <TableData>Total</TableData>
                 <TableData>Eliminar</TableData>
               </tr>
             </TableHead>
@@ -266,7 +273,8 @@ const ActualizarVentas = () => {
                 <tr key = {i} >
                   <TableData key={i + 'td1'}>{item.producto.label}</TableData>
                   <TableData key={i + 'td2'}>{item.cantidad}</TableData>
-                  <TableData key={i + 'td3'}>{item.producto.valor}</TableData>
+                  <TableData key={i + 'td3'}>${item.producto.valor}</TableData>
+                  <TableData>${multi}</TableData>
                   <TableData>
                     <button type="button" className="iconSide" onClick={()=>deleteItem(i)}>
                       <FontAwesomeIcon icon={faTrashAlt}/>
@@ -277,7 +285,9 @@ const ActualizarVentas = () => {
               })}
             </tbody>
           </Table>
-          <Label>Total: {multi}</Label>
+
+          {/* <Label>Total: ${multi}</Label> */}
+          
           {params.id?(
             <div>
               <Etiqueta>Estado de la venta: </Etiqueta>
@@ -324,7 +334,7 @@ const ActualizarVentas = () => {
               formularioValido = {formularioValido}
             />
           )}  
-      </Formulario>
+     
             
     </main>
   )
