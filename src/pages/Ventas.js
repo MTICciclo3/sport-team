@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
 import * as apiventas from './ApiVentas';
-import * as multi from './ActualizarVentas';
+
 
   const Ventas = () => {
     const [ventas, setVentas] = useState([]);
