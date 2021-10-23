@@ -8,7 +8,7 @@ function Card({ title, imageSource, text }) {
           className="photo"
           src={imageSource}
           alt=""
-          // style={{ height: "200px" }}
+         
         />
       </div>
 

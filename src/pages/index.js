@@ -6,7 +6,7 @@ const index = () => {
     <div display="flex" justify-content="center" height="100%">
       <h1 className='tituloUno' >SPORTTEAM</h1>
       <h1 className='tituloUno' >Los Zapatos del Futuro</h1>
-      <img width='100%' height='100%' src={Logo} alt="" />
+      <img src={Logo} alt=""/>
     </div>
   );
 };

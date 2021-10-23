@@ -256,6 +256,7 @@ const ActualizarVentas = () => {
                 <TableData>Producto</TableData>
                 <TableData>Cantidad</TableData>
                 <TableData>Precio unitario</TableData>
+                <TableData>Total</TableData>
                 <TableData>Eliminar</TableData>
               </tr>
             </TableHead>
@@ -266,6 +267,7 @@ const ActualizarVentas = () => {
                   <TableData key={i + 'td1'}>{item.producto.label}</TableData>
                   <TableData key={i + 'td2'}>{item.cantidad}</TableData>
                   <TableData key={i + 'td3'}>{item.producto.valor}</TableData>
+                  <TableData>${multi}</TableData>
                   <TableData>
                     <button type="button" className="iconSide" onClick={()=>deleteItem(i)}>
                       <FontAwesomeIcon icon={faTrashAlt}/>
