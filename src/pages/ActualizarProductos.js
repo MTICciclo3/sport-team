@@ -16,7 +16,7 @@ const ActualizarProductos = () => {
     const params = useParams();
     const history = useHistory();
 
-    const initialState = { _id: '', nombre: '', descripcion: '', valor: '', Estado: '', url: '' };
+    const initialState = { _id: '', nombre: '', descripcion: '', valor: '', urlimagen: '', Estado: '' };
     const [usuarios, setUsuarios] = useState(initialState);
 
 
@@ -24,10 +24,10 @@ const ActualizarProductos = () => {
     const [descripcion, cambiarDescripcion] = useState({ campo: '', valido: '' });
     const [valor, cambiarvalor] = useState({ campo: '', valido: '' });
     //const [idVendedor, cambiarIdVendedor] = useState({valido: ''});
+    const [urlimagen, cambiarurlimagen] = useState({ campo: '', valido: '' });
     const [Estado, cambiarEstado] = useState({ campo: '', valido: '' });
     const [formularioValido, cambiarFormularioValido] = useState('');
-    const [urlimagen, cambiarurlimagen] = useState({ campo: '', valido: '' });
-
+    
     const getProducto = async (productId) => {
         try {
             const res = await api.getProduct(productId);
@@ -43,8 +43,9 @@ const ActualizarProductos = () => {
             cambiarNombre({ valido: "true" });
             cambiarDescripcion({ valido: "true" });
             cambiarvalor({ valido: "true" });
-            cambiarEstado({ valido: "true" });
             cambiarurlimagen({ valido: "true" });
+            cambiarEstado({ valido: "true" });
+            
         }
         // eslint-disable-next-line
     }, []);
@@ -56,8 +57,9 @@ const ActualizarProductos = () => {
             nombre.valido === 'true' &&
             descripcion.valido === 'true' &&
             valor.valido === 'true' &&
-            Estado.valido === 'true' &&
-            urlimagen.valido === 'true'
+            urlimagen.valido === 'true' &&
+            Estado.valido === 'true' 
+            
         ) {
             cambiarFormularioValido(true);
             try {
@@ -135,7 +137,7 @@ const ActualizarProductos = () => {
                 />
                 <Input
                     user="urlimagen"
-                    placeholdercont="url producto"
+                    placeholdercont="url imagen"
                     tipo="text"
                     leyenda="la url admite todo tipo  letras y simbolos"
                     expresionRegular={Expresiones.url}

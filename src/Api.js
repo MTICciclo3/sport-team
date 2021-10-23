@@ -16,8 +16,9 @@ export const registerProducts = async (newProduct) => {
                 nombre: newProduct.nombre,
                 descripcion: newProduct.descripcion,
                 valor: newProduct.valor,
-                Estado: newProduct.Estado,
-                urlimagen: newProduct.urlimagen
+                urlimagen: newProduct.urlimagen,
+                Estado: newProduct.Estado
+                
             },
         })
         return response
@@ -63,8 +64,9 @@ export const updateProduct = async (productId, updateProduct) => {
                 nombre: updateProduct.nombre,
                 descripcion: updateProduct.descripcion,
                 valor: updateProduct.valor,
-                Estado: updateProduct.Estado,
-                urlimagen: updateProduct.urlimagen
+                urlimagen: updateProduct.urlimagen,
+                Estado: updateProduct.Estado
+                
             },
         })
         return response
@@ -72,9 +74,4 @@ export const updateProduct = async (productId, updateProduct) => {
     } catch (e) {
         console.log(e)
     }
-};
-
-export const listUsuarios = async () => {
-    return await axios.get(API_URL);
-
 };

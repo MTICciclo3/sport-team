@@ -17,18 +17,17 @@ const ActualizarVentas = () => {
 
   const params = useParams();
   const history = useHistory();
-  const initialState = {_id:'', nombre:'', apellido:'', documento:'', fecha:'', idVendedor:'', cantidadProducto:'', listaCanasta:'', producto:'', valor:''};
+  const initialState = {_id:'', fecha:'', nombre:'', apellido:'', documento:'',  idVendedor:'', cantidadProducto:'', listaCanasta:'', producto:'', valor:''};
   const [usuarios, setUsuarios] = useState(initialState);
   const initialStateListProductos = {item:'', cantidad:''};
   const [listaCanasta, setListaCanasta] = useState([]);
   
   
-      
+  const [fecha, cambiarFecha] = useState({campo:'', valido: null});    
   const [nombre, cambiarNombre] = useState({campo:'', valido: null});
   const [apellido, cambiarApellido] = useState({campo:'', valido: null});
   const [documento, cambiarDocumento] = useState({campo:'', valido: null});
   const [idVendedor, cambiarIdVendedor] = useState({campo:'', valido: null});
-  const [fecha, cambiarFecha] = useState({campo:'', valido: null});
   const [cantidadProducto, cambiarCantidadProducto] = useState({campo:'', valido: null});
   const [formularioValido, cambiarFormularioValido] = useState(null);
   const [producto, setProducto] = useState({campo:'', valido: null});
@@ -47,23 +46,23 @@ const ActualizarVentas = () => {
   useEffect(() => {
     if(params.id){
       getVenta(params.id);
+      cambiarFecha({valido:'true'});
       cambiarNombre({valido:'true'});
       cambiarApellido({valido:'true'});
       cambiarDocumento({valido:'true'});
       cambiarIdVendedor({valido:'true'});
-      cambiarFecha({valido:'true'});
       cambiarCantidadProducto({valido:'true'});
     }
-  },[]);
+  }, []);
 
   const onSubmitForm = async(e) =>{
         e.preventDefault();
         if(
+          fecha.valido === 'true' &&
           nombre.valido === 'true' &&
           apellido.valido === 'true' &&
           documento.valido === 'true' &&
           idVendedor.valido === 'true' &&
-          fecha.valido === 'true' &&
           cantidadProducto.valido === 'true'
         ){
           cambiarFormularioValido(true);
@@ -257,7 +256,6 @@ const ActualizarVentas = () => {
                 <TableData>Producto</TableData>
                 <TableData>Cantidad</TableData>
                 <TableData>Precio unitario</TableData>
-                <TableData>Total</TableData>
                 <TableData>Eliminar</TableData>
               </tr>
             </TableHead>
@@ -268,7 +266,6 @@ const ActualizarVentas = () => {
                   <TableData key={i + 'td1'}>{item.producto.label}</TableData>
                   <TableData key={i + 'td2'}>{item.cantidad}</TableData>
                   <TableData key={i + 'td3'}>{item.producto.valor}</TableData>
-                  <TableData>{multi}</TableData>
                   <TableData>
                     <button type="button" className="iconSide" onClick={()=>deleteItem(i)}>
                       <FontAwesomeIcon icon={faTrashAlt}/>
@@ -310,6 +307,7 @@ const ActualizarVentas = () => {
           ):(
             null
           )}  
+          
           
           {formularioValido === false  && <AlertaError/>}
           {params.id?(

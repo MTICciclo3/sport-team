@@ -14,13 +14,12 @@ const consultarVenta = async (id, callback) =>{
 const crearVenta = async (datosVenta, callback) =>{
     const baseDeDatos = getDB();    
     if(
+        Object.keys(datosVenta).includes("fecha") &&
         Object.keys(datosVenta).includes("nombre") &&
         Object.keys(datosVenta).includes("apellido") &&
         Object.keys(datosVenta).includes("documento") &&
-        Object.keys(datosVenta).includes("fecha") &&
         Object.keys(datosVenta).includes("idVendedor") &&
         Object.keys(datosVenta).includes("cantidadProducto") &&
-        Object.keys(datosVenta).includes("multi") &&
         Object.keys(datosVenta).includes("listaCanasta")
     ){
      //implementar codigo para crear venta en BD
