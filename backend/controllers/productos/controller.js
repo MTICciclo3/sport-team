@@ -17,8 +17,9 @@ const crearProducto = async (datosProducto, callback) =>{
         Object.keys(datosProducto).includes("nombre") &&
         Object.keys(datosProducto).includes("descripcion") &&
         Object.keys(datosProducto).includes("valor") &&
-        Object.keys(datosProducto).includes("Estado") &&
-        Object.keys(datosProducto).includes("url") 
+        Object.keys(datosProducto).includes("urlimagen") &&
+        Object.keys(datosProducto).includes("Estado")
+        
     ){
      //implementar codigo para crear producto en BD
         await baseDeDatos.collection('producto').insertOne(datosProducto, callback)
