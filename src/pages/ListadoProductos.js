@@ -62,10 +62,10 @@ const ListadoProductos = () => {
         <TableHead>
           <tr>
             <TableData>Producto</TableData>
-            <TableData>Estado</TableData>
-            <TableData>Imagen</TableData>
             <TableData>Descripcion</TableData>
             <TableData>Valor</TableData>
+            <TableData>Imagen</TableData>
+            <TableData>Estado</TableData>
             <TableData>Actualizar</TableData>
           </tr>
         </TableHead>
@@ -73,10 +73,10 @@ const ListadoProductos = () => {
           {productosFiltrados.map((productos) =>(
               <TableRow key={productos._id}>
               <TableData>{productos.nombre}</TableData>
-              <TableData>{productos.Estado.label}</TableData>
-              <TableData > <img src={productos.urlimagen}/> </TableData>
               <TableData>{productos.descripcion}</TableData>
               <TableData>${productos.valor}</TableData>
+              <TableData > <img src={productos.urlimagen}/> </TableData>
+              <TableData>{productos.Estado.label}</TableData>
               <TableData>
                 <button className="iconSide" onClick={() => {
                   history.push(`/editarProductos/${productos._id}`)}}

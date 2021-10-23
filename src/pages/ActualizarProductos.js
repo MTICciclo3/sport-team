@@ -141,7 +141,7 @@ const ActualizarProductos = () => {
                     tipo="text"
                     leyenda="la url admite todo tipo  letras y simbolos"
                     expresionRegular={Expresiones.url}
-                    name="url imagen"
+                    name="urlimagen"
                     estado={urlimagen}
                     cambiarEstado={cambiarurlimagen}
                     DefVal={usuarios.urlimagen}
