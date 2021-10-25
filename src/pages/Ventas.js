@@ -62,7 +62,6 @@ import * as apiventas from './ApiVentas';
               <TableData>Apellido del cliente</TableData>
               <TableData>Documento del cliente</TableData>
               <TableData>Id Vendedor</TableData>
-              <TableData>Valor Compra</TableData>
               <TableData>Actualizar</TableData>
             </tr>
           </TableHead>
@@ -75,7 +74,6 @@ import * as apiventas from './ApiVentas';
                   <TableData>{ventas.apellido}</TableData>
                   <TableData>{ventas.documento}</TableData>
                   <TableData>{ventas.idVendedor}</TableData>
-                  <TableData>{}</TableData>
                  <TableData>
                     <button className="iconSide" 
                       onClick={()=>{
