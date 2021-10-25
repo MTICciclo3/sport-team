@@ -12,17 +12,19 @@ const Navbar = () => {
 
     const Login = (response) => {
         setLogged(true);
-        console.log(response)
+        localStorage.setItem("token", response.tokenId);
+        console.log(response);
+        console.log()
     };
 
     const logout = () => {
         setLogged(false);
+        localStorage.removeItem("token")
     };
 
     const loginE = (err) => {
         console.log(err);
     };
-
 
     if (logged) {
         return (
@@ -40,16 +42,15 @@ const Navbar = () => {
         return (
             <div>
                 <Bar className="justify-content-end">
-                <div>
-            <GoogleLogin
-                clientId="589673020443-1qefkvd63rah6bnrkp1ci9qkuisbdhbd.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={Login}
-                onFailure={loginE}
-                cookiePolicy={'single_host_origin'}
-            />
-        </div>
-                    {/* <Boton onClick={login}>Login</Boton>*/}
+                    <div>
+                        <GoogleLogin
+                            clientId="589673020443-1qefkvd63rah6bnrkp1ci9qkuisbdhbd.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={Login}
+                            onFailure={loginE}
+                            cookiePolicy={'single_host_origin'}
+                        />
+                    </div>
                 </Bar>
             </div >
         )
