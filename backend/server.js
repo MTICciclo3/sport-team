@@ -5,6 +5,7 @@ import { conectarBD } from './db/db.js';
 import rutasUsuario from './views/usuarios/rutas.js';
 import rutasProductos from './views/productos/rutas.js';
 import rutasVenta from './views/ventas/rutas.js';
+require("dotenv").config();
 
 dotenv.config({path: './.env'});
 
@@ -17,7 +18,7 @@ app.use(rutasProductos);
 app.use(rutasVenta);
 
 const main = () => {
-    return app.listen(process.env.PORT = 3001, () => {
+    return app.listen(process.env.PORT || 3001, () => {
         console.log(`escuchando puerto ${process.env.PORT}`);
     });
 };
