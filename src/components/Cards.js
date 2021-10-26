@@ -7,21 +7,21 @@ import productos from "../assets/productos.jpg";
 const cards = [
   {
     id: 1,
-    title: "Ventas",
+    title: "Gestion Ventas",
     image: compras,
     text: "En esta ventana se pueden realizar pedidos de compra de los diferentes productos ofrecidos en la página.",
   },
   {
     id: 2,
-    title: "Usuarios",
+    title: "Gestion Vendedores",
     image: users,
-    text: "En esta ventana se podrán administrar los usuarios registrados en la página web, tanto su información como su rol en la página.",
+    text: "En esta ventana se podrán administrar los Vendedores registrados en la página, tanto su información como su rol en la página.",
   },
   {
     id: 3,
-    title: "Productos",
+    title: "Gestion Productos",
     image: productos,
-    text: "En esta ventana se pueden ver todos los productos disponibles en la empresa, se podrán agregar, modificar o eliminar.",
+    text: "En esta ventana se pueden ver todos los Productos disponibles en la empresa, se podrán agregar, modificar o eliminar.",
   },
 ];
 

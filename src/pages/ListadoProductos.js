@@ -3,13 +3,15 @@ import {Table, TableHead, TableData, Boton, ContenedorBotonCentrado, TableRow} f
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
-import * as api from 'Api'
+import * as api from 'Api';
+
+
 
 
 const ListadoProductos = () => {
 
   const [productos, setProductos] = useState([]);
-  const history = useHistory();
+  
 
   const listProductos = async()=>{
     try{
@@ -24,6 +26,8 @@ const ListadoProductos = () => {
   useEffect(()=>{
     listProductos();
   },[]);
+
+  const history = useHistory();
 
   const handleDelete= async (productId)=>{
     await api.deleteProduct(productId);
@@ -58,17 +62,21 @@ const ListadoProductos = () => {
         <TableHead>
           <tr>
             <TableData>Producto</TableData>
-            <TableData>Estado</TableData>
+            <TableData>Descripcion</TableData>
             <TableData>Valor</TableData>
+            <TableData>Imagen</TableData>
+            <TableData>Estado</TableData>
             <TableData>Actualizar</TableData>
           </tr>
         </TableHead>
         <tbody>
           {productosFiltrados.map((productos) =>(
-            <TableRow key={productos._id}>
+              <TableRow key={productos._id}>
               <TableData>{productos.nombre}</TableData>
-              <TableData>{productos.estado}</TableData>
-              <TableData>{productos.valor}</TableData>
+              <TableData>{productos.descripcion}</TableData>
+              <TableData>${productos.valor}</TableData>
+              <TableData > <img src={productos.urlimagen} width="100" height="60"/> </TableData>
+              <TableData>{productos.Estado.label}</TableData>
               <TableData>
                 <button className="iconSide" onClick={() => {
                   history.push(`/editarProductos/${productos._id}`)}}

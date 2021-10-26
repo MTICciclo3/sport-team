@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import {Table, TableHead, TableData, TableRow} from 'elements/Listas';
+import {Table, TableHead, TableData, Boton, ContenedorBotonCentrado, TableRow} from 'elements/Listas';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as server from './server';
 
 const TablaGestionUsuarios = () => {
 
     const [usuarios, setUsuarios]= useState([]);
 
+    
     const listUsuarios = async()=>{
       try{
         const res = await server.listUsuarios();
@@ -41,7 +42,12 @@ const TablaGestionUsuarios = () => {
 
   return(
       <main className="mainContainerTable">
-      <h2 className="tituloGestionVentas">Gestion de Usuarios</h2>
+      <ContenedorBotonCentrado>
+      <Boton>
+        <Link to="/gestionUsuarios">Agregar</Link>
+      </Boton>
+      </ContenedorBotonCentrado>
+      <h2 className="tituloGestionUsuarios">Gestion de Vendedores</h2>
       <input className = "inputBusqueda"
         value={busqueda}
         onChange={(e) => setBusqueda(e.target.value)}
@@ -51,7 +57,9 @@ const TablaGestionUsuarios = () => {
         <TableHead>
           <tr>
             <TableData>Nombre</TableData>
+            <TableData>Apellido</TableData>
             <TableData>Documento</TableData>
+            <TableData>Rol</TableData>
             <TableData>Estado</TableData>
             <TableData>Editar</TableData>
           </tr>
@@ -62,15 +70,15 @@ const TablaGestionUsuarios = () => {
               <TableData>{usuario.nombre}</TableData>
               <TableData>{usuario.apellido}</TableData>
               <TableData>{usuario.documento}</TableData>
+              <TableData>{usuario.Rol.label}</TableData>
+              <TableData>{usuario.Estado.label}</TableData>
               <TableData>
-                <button className="iconSide"
-                onClick={() => {
+                <button className="iconSide" onClick={() => {
                   history.push(`/editarUsuario/${usuario._id}`)}}
                 >
                     <FontAwesomeIcon  icon={faPenAlt}/>
                 </button>
-                <button className="iconSide"
-                  onClick={()=>handleDelete(usuario._id)}
+                <button className="iconSide" onClick={()=>handleDelete(usuario._id)}
                 >
                   <FontAwesomeIcon icon={faTrashAlt}/>
                 </button>

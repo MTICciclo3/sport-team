@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost:5000/venta"
+const API_URL = "http://localhost:3001/venta"
 
 export const listaVentas = async () => {
     return await axios.get(API_URL);
@@ -13,10 +13,10 @@ export const registerVenta = async (newVenta) =>{
             url:`${API_URL}`,
             method:'POST',
             data:{
+                fecha: newVenta.fecha,
                 nombre: newVenta.nombre,
                 apellido: newVenta.apellido,
                 documento: newVenta.documento,
-                fecha: newVenta.fecha,
                 idVendedor: newVenta.idVendedor,
                 cantidadProducto: newVenta.cantidadProducto,
                 listaCanasta: newVenta.listaCanasta,
@@ -62,10 +62,10 @@ export const updateVenta = async (idVenta, updateVenta) =>{
             url:`${API_URL}/${idVenta}`,
             method:'PATCH',
             data:{
+                fecha: updateVenta.fecha,
                 nombre: updateVenta.nombre,
                 apellido: updateVenta.apellido,
                 documento: updateVenta.documento,
-                fecha: updateVenta.fecha,
                 idVendedor: updateVenta.idVendedor,
                 cantidadProducto: updateVenta.cantidadProducto,
                 producto: updateVenta.producto
