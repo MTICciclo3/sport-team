@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPenAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
 import * as api from 'Api';
-import './index1.css';
+
 
 
 
@@ -75,7 +75,7 @@ const ListadoProductos = () => {
               <TableData>{productos.nombre}</TableData>
               <TableData>{productos.descripcion}</TableData>
               <TableData>${productos.valor}</TableData>
-              <TableData > <img src={productos.urlimagen}/> </TableData>
+              <TableData > <img src={productos.urlimagen} width="100" height="60"/> </TableData>
               <TableData>{productos.Estado.label}</TableData>
               <TableData>
                 <button className="iconSide" onClick={() => {
