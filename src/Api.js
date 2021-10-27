@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost:3001/producto"
+const API_URL = "https://sportteam-backend.herokuapp.com/producto"
 
 export const listProduct = async () => {
     return await axios.get(API_URL);
