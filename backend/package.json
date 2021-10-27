@@ -5,7 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "heroku-postbuild": "npm install && npm install && npm run build"
   },
   "dependencies": {
     "cores": "^0.8.5",

@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: './.env' });
 
-const stringConexion = "mongodb+srv://inventario:inventariosportteam@cluster0.j53jc.mongodb.net/inventario?retryWrites=true&w=majority";
+const stringConexion = process.env.MONGODB_CONNECTION;
 
 const client = new MongoClient(stringConexion, {
     useNewUrlParser: true,
